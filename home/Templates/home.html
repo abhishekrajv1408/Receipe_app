@@ -1,0 +1,21 @@
+{% extends "index.html" %} {% block start %} 
+<div class="d-flex flex-row justify-content-around flex-wrap">
+{% for receipe in receipes %}
+{% load static %}
+
+<div class="card my-5 " style="width: 18rem">
+  <img src="/media/{{receipe.receipe_image}}" class="card-img-top img-thumbnail" alt="receipe-image" />
+  <div class="card-body ">
+    <h5 class="card-title">{{ receipe.receipe_name }}</h5>
+    <p class="card-text">
+      {{ receipe.receipe_description }}
+    </p>
+    <a href="/delete/{{receipe.id}}" class="btn btn-danger">DELETE</a> 
+    <a href="/update/{{receipe.id}}" class="btn btn-primary">UPDATE</a> 
+  </div>
+</div>
+
+
+{% endfor %}
+</div>
+{% endblock %}

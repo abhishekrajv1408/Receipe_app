@@ -1,0 +1,26 @@
+{% extends "index.html" %} 
+{% block start %}
+
+<div class="container mt-5">
+  <form method="post" accept="/home" class="col-6 mx-auto card p-3 shadow-lg" enctype = "multipart/form-data">
+    <h1>Update Receipe</h1>
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="receipe_name" class="form-label">Receipe_name</label>
+      <input type="text" class="form-control" value ="{{receipe.receipe_name}}" name="receipe_name" />
+    </div>
+    <div class="mb-3">
+      <label for="receipe_description" class="form-label"
+        >Receipe_description</label
+      >
+      <input type="text" class="form-control" name="receipe_description" value="{{receipe.receipe_description}}" />
+    </div>
+    <div class="mb-3">
+      <label for="receipe_image" class="form-label">Receipe_image</label>
+      <input type="file" class="form-control" name="receipe_image" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+{% endblock %}
